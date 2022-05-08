@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>ByFlowData</title>
+        <link th:href="@{byflowdata.css}" rel="stylesheet">
+    </head>
+    <body>
+        <section class="byflowdata-form-section">
+            <div class="container">
+                <div class="card">
+                    <form th:action="@{/report}" method="post" class="form-control">
+                        <div class="date-control">
+                            <input type="date" th:name="transDate">
+                        </div>
+                        <div class="file-id-control">
+                            <select th:name="fileId">
+                                <option th:value="640043519684" th:text="640043519684"/>
+                            </select>
+                        </div>
+                        <div class="file-type-control">
+                            <select th:name="fileFormat">
+                                <option th:value="pdf" th:text="PDF"/>
+                            </select>
+                        </div>
+                        <div class="generate-btn">
+                            <input type="submit" class="btn-primary" value="generate report">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="transadates-section">
+            <div class="container">
+                <div class="card" th:each="transdate : ${transdates}">
+                    <p th:text="${transdate}"/>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
